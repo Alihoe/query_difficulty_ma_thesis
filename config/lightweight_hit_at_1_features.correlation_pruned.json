@@ -1,0 +1,185 @@
+{
+  "metadata_version": 1,
+  "importance_threshold": 0.005,
+  "correlation_threshold": 0.8,
+  "source": "correlation-pruned from config/lightweight_hit_at_1_features.json; review before adopting",
+  "retrievers": {
+    "bm25": {
+      "qualifying_features": [
+        "top_1_top_2_score_margin",
+        "top_1_title_query_coverage",
+        "close_competitor_fraction",
+        "top_1_unmatched_idf_mass_ratio",
+        "top_1_score",
+        "weighted_information_gain",
+        "top_1_abstract_length_tokens",
+        "top_1_title_abstract_entity_overlap",
+        "top_1_authors_query_coverage",
+        "top_1_authors_length_tokens",
+        "stopword_ratio",
+        "top_1_title_length_characters",
+        "cumulative_top_k_score_mass",
+        "mean_query_term_ictf",
+        "maximum_top_k_pairwise_tfidf_similarity",
+        "boundary_surprise_score",
+        "mean_query_term_polysemy",
+        "sentiment_polarity",
+        "sentiment_intensity",
+        "rank_k_rank_k_plus_1_score_margin",
+        "simplified_clarity_score",
+        "minimum_top_k_pairwise_tfidf_similarity",
+        "maximum_top_k_pairwise_entity_similarity",
+        "query_scope",
+        "clarity_score",
+        "query_length_characters",
+        "proper_noun_ratio",
+        "mean_dependency_link_span",
+        "mean_top_k_pairwise_entity_similarity",
+        "top_1_venue_length_characters",
+        "idf_maximum_to_minimum_ratio",
+        "median_top_k_score",
+        "query_term_idf_standard_deviation",
+        "repeated_term_ratio",
+        "numeral_ratio"
+      ],
+      "source_feature_count": 70,
+      "qualifying_feature_count": 35
+    },
+    "qwen3_embedding_0_6b": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "bm25_top_1_agreement",
+        "close_competitor_fraction",
+        "distance_weighted_training_query_rr_at_k",
+        "maximum_semantic_top_1_agreement",
+        "top_k_cosine_skewness",
+        "top_1_cosine_similarity",
+        "perturbation_ranking_stability",
+        "stopword_ratio",
+        "sentiment_polarity",
+        "maximum_top_k_pairwise_cosine_similarity",
+        "embedding_spatial_autocorrelation",
+        "dense_weighted_information_gain",
+        "sentiment_intensity",
+        "query_scope",
+        "top_k_centroid_distance_standard_deviation",
+        "boundary_cosine_z_score",
+        "rank_k_rank_k_plus_1_cosine_margin",
+        "query_collection_centroid_cosine",
+        "mean_query_term_polysemy",
+        "boundary_semantic_surprise_score",
+        "proper_noun_ratio",
+        "simplified_clarity_score",
+        "spherical_dominant_cluster_enrichment_in_top_k",
+        "mean_dependency_link_span",
+        "query_term_idf_standard_deviation",
+        "nearest_centroid_cosine_hdbscan",
+        "nearest_second_nearest_centroid_margin_hdbscan",
+        "hdbscan_dominant_cluster_enrichment_in_top_k",
+        "query_length_characters"
+      ],
+      "source_feature_count": 91,
+      "qualifying_feature_count": 30
+    },
+    "bge_m3": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "bm25_top_1_agreement",
+        "close_competitor_fraction",
+        "distance_weighted_training_query_rr_at_k",
+        "maximum_semantic_top_1_agreement",
+        "perturbation_ranking_stability",
+        "top_1_cosine_similarity",
+        "dense_weighted_information_gain",
+        "stopword_ratio",
+        "sentiment_polarity"
+      ],
+      "source_feature_count": 91,
+      "qualifying_feature_count": 10
+    },
+    "bge_large_en_v1_5": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "bm25_top_1_agreement",
+        "close_competitor_fraction",
+        "distance_weighted_training_query_rr_at_k",
+        "maximum_semantic_top_1_agreement",
+        "top_k_cosine_skewness",
+        "top_1_cosine_similarity",
+        "perturbation_ranking_stability",
+        "dense_weighted_information_gain",
+        "stopword_ratio",
+        "proper_noun_ratio",
+        "sentiment_polarity",
+        "maximum_top_k_pairwise_cosine_similarity"
+      ],
+      "source_feature_count": 91,
+      "qualifying_feature_count": 13
+    },
+    "e5_large_v2": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "bm25_top_1_agreement",
+        "top_1_rank_k_cosine_drop",
+        "distance_weighted_training_query_rr_at_k",
+        "maximum_semantic_top_1_agreement",
+        "top_k_cosine_skewness",
+        "perturbation_ranking_stability",
+        "top_1_cosine_similarity",
+        "dense_weighted_information_gain",
+        "stopword_ratio",
+        "maximum_top_k_pairwise_cosine_similarity",
+        "sentiment_polarity",
+        "embedding_spatial_autocorrelation",
+        "boundary_semantic_surprise_score"
+      ],
+      "source_feature_count": 91,
+      "qualifying_feature_count": 14
+    },
+    "gtr_t5_xl": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "bm25_top_1_agreement",
+        "top_1_rank_k_cosine_drop",
+        "distance_weighted_training_query_rr_at_k",
+        "maximum_semantic_top_1_agreement",
+        "top_k_cosine_skewness",
+        "perturbation_ranking_stability",
+        "stopword_ratio",
+        "top_1_cosine_similarity"
+      ],
+      "source_feature_count": 91,
+      "qualifying_feature_count": 9
+    },
+    "multilingual_e5_large": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "bm25_top_1_agreement",
+        "close_competitor_fraction",
+        "distance_weighted_training_query_rr_at_k",
+        "maximum_semantic_top_1_agreement",
+        "top_k_cosine_skewness",
+        "perturbation_ranking_stability",
+        "stopword_ratio",
+        "top_1_cosine_similarity",
+        "sentiment_polarity",
+        "dense_weighted_information_gain",
+        "maximum_top_k_pairwise_cosine_similarity"
+      ],
+      "source_feature_count": 91,
+      "qualifying_feature_count": 12
+    },
+    "multilingual_e5_base": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "bm25_top_1_agreement",
+        "top_k_cosine_standard_deviation",
+        "distance_weighted_training_query_rr_at_k",
+        "top_1_cosine_similarity",
+        "dense_weighted_information_gain"
+      ],
+      "source_feature_count": 91,
+      "qualifying_feature_count": 6
+    }
+  }
+}

@@ -1,0 +1,177 @@
+project_name: query_difficulty
+data_dir: data/SciWeb2026
+artifact_dir: artifacts
+latex_table_dir: latex/tables
+languages:
+  - en
+  - de
+  - fr
+enabled_document_scopes:
+  - title_abstract
+  - title_abstract_venue
+  - all_fields
+  - title
+  - abstract
+  - venue
+  - authors
+full_scope_retrievers:
+  - bm25
+  - qwen3_embedding_0_6b
+predictor_feature_modes:
+  - local
+  - all_meaningful
+candidate_sizes:
+  - 5
+  - 10
+  - 20
+  - 30
+  - 50
+  - 60
+  - 100
+  - 120
+  - 200
+  - 1000
+max_ranking_depth: 1000
+enabled_feature_blocks:
+  - lexical_pre
+  - lexical_post
+  - semantic_pre
+  - semantic_score
+  - semantic_geometry
+  - semantic_cluster
+  - retriever_agreement
+  - perturbation
+enabled_clusterers:
+  - hdbscan
+  - spherical_kmeans
+enabled_lexical_retrievers:
+  - bm25
+  - tfidf
+  - keyword_overlap
+  - jaccard
+enabled_semantic_retrievers:
+  - qwen3_embedding_0_6b
+  - bge_m3
+  - bge_large_en_v1_5
+  - e5_large_v2
+  - gtr_t5_xl
+  - multilingual_e5_large
+  - multilingual_e5_base
+  - bge_base_en_v1_5
+  - contriever_msmarco
+  - gte_large_en_v1_5
+runtime:
+  random_seed: 13
+  n_jobs: 1
+  allow_resource_downloads: true
+  limit_queries:
+  feature_checkpoint_batch_size: 100
+predictors:
+  ordinal:
+    base_model: random_forest
+  qpp:
+    failure_model: random_forest
+    regressor: random_forest
+    mapping: inverse_log_linear
+    score_source: regression_full
+    minimum_size: 5
+    maximum_size: 1000
+  tuned_qpp:
+    failure_model: random_forest
+    regressor: random_forest
+    score_source: regression_full
+    minimum_size: 5
+    maximum_size: 1000
+clustering:
+  protocol_version: paper_title_abstract_clusters_v1
+  useful_cluster_size_min: 10
+  useful_cluster_size_max: 1000
+  hdbscan_umap_metric: cosine
+  hdbscan_umap_n_neighbors: 10
+  hdbscan_umap_n_components: 20
+  hdbscan_umap_min_dist: 0.0
+  hdbscan_umap_random_state: 42
+  hdbscan_metric: euclidean
+  hdbscan_min_cluster_size: 5
+  hdbscan_min_samples: 5
+  hdbscan_cluster_selection_method: eom
+  spherical_k_min: 2
+  spherical_k_max: 1000
+  spherical_largest_cluster_share_cap: 0.03
+  spherical_validation_candidates: 5
+  spherical_validation_runs: 5
+  spherical_iterations: 25
+  silhouette_sample_size: 2048
+semantic_retrievers:
+  qwen3_embedding_0_6b:
+    model_name: Qwen/Qwen3-Embedding-0.6B
+    query_prefix: ""
+    document_prefix: ""
+    batch_size: 8
+    trust_remote_code: true
+    normalize_embeddings: true
+  bge_m3:
+    model_name: BAAI/bge-m3
+    query_prefix: "Represent this sentence for searching relevant passages: "
+    document_prefix: ""
+    batch_size: 32
+    trust_remote_code: false
+    normalize_embeddings: true
+  bge_large_en_v1_5:
+    model_name: BAAI/bge-large-en-v1.5
+    query_prefix: "Represent this sentence for searching relevant passages: "
+    document_prefix: ""
+    batch_size: 32
+    trust_remote_code: false
+    normalize_embeddings: true
+  e5_large_v2:
+    model_name: intfloat/e5-large-v2
+    query_prefix: "query: "
+    document_prefix: "passage: "
+    batch_size: 32
+    trust_remote_code: false
+    normalize_embeddings: true
+  gtr_t5_xl:
+    model_name: sentence-transformers/gtr-t5-xl
+    query_prefix: ""
+    document_prefix: ""
+    batch_size: 8
+    trust_remote_code: false
+    normalize_embeddings: true
+  multilingual_e5_large:
+    model_name: intfloat/multilingual-e5-large
+    query_prefix: "query: "
+    document_prefix: "passage: "
+    batch_size: 32
+    trust_remote_code: false
+    normalize_embeddings: true
+  multilingual_e5_base:
+    model_name: intfloat/multilingual-e5-base
+    query_prefix: "query: "
+    document_prefix: "passage: "
+    batch_size: 16
+    trust_remote_code: false
+    normalize_embeddings: true
+  bge_base_en_v1_5:
+    model_name: BAAI/bge-base-en-v1.5
+    query_prefix: "Represent this sentence for searching relevant passages: "
+    document_prefix: ""
+    batch_size: 32
+    trust_remote_code: false
+    normalize_embeddings: true
+  contriever_msmarco:
+    model_name: facebook/contriever-msmarco
+    query_prefix: ""
+    document_prefix: ""
+    batch_size: 32
+    trust_remote_code: false
+    normalize_embeddings: true
+  gte_large_en_v1_5:
+    model_name: Alibaba-NLP/gte-large-en-v1.5
+    query_prefix: ""
+    document_prefix: ""
+    batch_size: 32
+    trust_remote_code: true
+    revision: 104333d6af6f97649377c2afbde10a7704870c7b
+    code_revision: 40ced75c3017eb27626c9d4ea981bde21a2662f4
+    normalize_embeddings: true

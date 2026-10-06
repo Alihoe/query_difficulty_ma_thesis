@@ -1,0 +1,56 @@
+{
+  "metadata_version": 2,
+  "predictor_name": "in_top_max_depth",
+  "pipeline_stage": "rfe_pruned",
+  "importance_threshold": 0.005,
+  "importance_grouping": "sum over depth copies of the same feature; representative = most important copy",
+  "excluded_multi_retriever_consensus_features": [
+    "maximum_semantic_top_100_agreement",
+    "maximum_semantic_top_1_agreement",
+    "mean_semantic_top_100_agreement",
+    "mean_semantic_top_1_agreement",
+    "top_100_document_consensus",
+    "top_1_consensus_frequency"
+  ],
+  "correlation_thresholds": [
+    0.8,
+    0.7
+  ],
+  "rfe_step_fraction": 0.1,
+  "rfe_selection_rule": "smallest feature count within one bootstrap standard error of best dev mcc",
+  "rfe_bootstrap_samples": 2000,
+  "source": "grouped freeze -> correlation [0.8, 0.7] -> RFE",
+  "retrievers": {
+    "bm25": {
+      "qualifying_features": [
+        "depth_20::top_1_rank_k_score_drop",
+        "depth_30::top_1_title_query_coverage",
+        "depth_200::stopword_ratio",
+        "depth_60::mean_top_k_pairwise_entity_similarity",
+        "depth_60::top_1_authors_length_characters",
+        "depth_5::maximum_top_k_pairwise_tfidf_similarity",
+        "depth_120::top_1_unmatched_idf_mass_ratio"
+      ],
+      "source_feature_count": 33,
+      "qualifying_feature_count": 7
+    },
+    "qwen3_embedding_0_6b": {
+      "qualifying_features": [
+        "depth_20::distance_weighted_training_query_rr_at_k",
+        "depth_1000::top_1_cosine_similarity",
+        "depth_30::bm25_top_100_agreement",
+        "depth_60::spherical_score_weighted_cluster_entropy_in_top_k",
+        "depth_1000::top_1_rank_k_cosine_drop",
+        "depth_30::log_query_document_hyper_volume",
+        "depth_200::spherical_retrieval_score_mass_of_query_nearest_cluster_in_top_k",
+        "depth_200::stopword_ratio",
+        "depth_100::spherical_cluster_entropy_in_top_k",
+        "depth_5::simplified_clarity_score",
+        "depth_120::hdbscan_score_weighted_cluster_entropy_in_top_k",
+        "depth_50::perturbation_ranking_stability"
+      ],
+      "source_feature_count": 37,
+      "qualifying_feature_count": 12
+    }
+  }
+}

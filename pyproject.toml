@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "query-difficulty"
+version = "0.1.0"
+description = "Cache-first query difficulty analysis and candidate-set size prediction."
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "anthropic",
+  "faiss-cpu",
+  "FlagEmbedding",
+  "hdbscan",
+  "jinja2",
+  "joblib",
+  "matplotlib",
+  "nltk",
+  "numpy",
+  "pandas",
+  "plotly",
+  "pyarrow",
+  "pyyaml",
+  "rank-bm25",
+  "requests",
+  "scikit-learn",
+  "scipy",
+  "sentence-transformers",
+  "spacy",
+  "torch",
+  "tqdm",
+  "transformers",
+  "typer",
+  "umap-learn",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,300 @@
+feature_groups:
+  lexical_pre_retrieval:
+    display_name: "Lexical Pre-Retrieval"
+    order: 1
+    features:
+      query_length_characters: "Query length (characters)"
+      query_length_tokens: "Query length (tokens)"
+      x_artifact_ratio: "X artifact ratio"
+      x_mention_ratio: "X mention ratio"
+      german_indicator: "German indicator"
+      english_indicator: "English indicator"
+      french_indicator: "French indicator"
+      mean_query_term_idf: "Mean query-term IDF"
+      maximum_query_term_idf: "Maximum query-term IDF"
+      query_term_idf_standard_deviation: "Query-term IDF standard deviation"
+      mean_query_term_ictf: "Mean query-term ICTF"
+      query_scope: "Query scope"
+      query_scope_non_stopwords: "Query scope (non-stopwords)"
+      out_of_vocabulary_ratio: "Out-of-vocabulary ratio"
+      stopword_ratio: "Stopword ratio"
+      repeated_term_ratio: "Repeated-term ratio"
+      simplified_clarity_score: "Simplified Clarity Score"
+      idf_maximum_to_minimum_ratio: "IDF maximum-to-minimum ratio"
+      numeral_ratio: "Numeral ratio"
+      acronym_ratio: "Acronym ratio"
+      proper_noun_ratio: "Proper-noun ratio"
+      mean_query_term_polysemy: "Mean query-term polysemy"
+      mean_dependency_link_span: "Mean dependency-link span"
+      sentiment_polarity: "Sentiment polarity"
+      sentiment_intensity: "Sentiment intensity"
+
+  lexical_post_retrieval:
+    display_name: "Lexical Post-Retrieval"
+    order: 2
+    features:
+      top_1_title_length_characters: "Top-1 title length (characters)"
+      top_1_title_length_tokens: "Top-1 title length (tokens)"
+      top_1_title_query_coverage: "Top-1 title query coverage"
+      top_1_abstract_length_characters: "Top-1 abstract length (characters)"
+      top_1_abstract_length_tokens: "Top-1 abstract length (tokens)"
+      top_1_abstract_query_coverage: "Top-1 abstract query coverage"
+      top_1_authors_length_characters: "Top-1 authors length (characters)"
+      top_1_authors_length_tokens: "Top-1 authors length (tokens)"
+      top_1_authors_query_coverage: "Top-1 authors query coverage"
+      top_1_venue_length_characters: "Top-1 venue length (characters)"
+      top_1_venue_length_tokens: "Top-1 venue length (tokens)"
+      top_1_venue_query_coverage: "Top-1 venue query coverage"
+      top_1_title_abstract_entity_overlap: "Top-1 title-abstract entity overlap"
+      top_1_query_term_coverage: "Top-1 query-term coverage"
+      top_1_unmatched_idf_mass_ratio: "Top-1 unmatched IDF mass ratio"
+      minimum_top_k_pairwise_tfidf_similarity: "Minimum top-k pairwise TF-IDF similarity"
+      maximum_top_k_pairwise_tfidf_similarity: "Maximum top-k pairwise TF-IDF similarity"
+      mean_top_k_pairwise_tfidf_similarity: "Mean top-k pairwise TF-IDF similarity"
+      minimum_top_k_pairwise_entity_similarity: "Minimum top-k pairwise entity similarity"
+      maximum_top_k_pairwise_entity_similarity: "Maximum top-k pairwise entity similarity"
+      mean_top_k_pairwise_entity_similarity: "Mean top-k pairwise entity similarity"
+      clarity_score: "Clarity Score"
+      retrieval_coherency_graph_density: "Retrieval-coherency graph density"
+      largest_retrieval_coherency_component_share: "Largest retrieval-coherency component share"
+      top_1_score: "Top-1 score"
+      top_1_top_2_score_margin: "Top-1/top-2 score margin"
+      score_at_rank_k: "Score at rank k"
+      score_at_rank_k_plus_1: "Score at rank k+1"
+      rank_k_rank_k_plus_1_score_margin: "Rank-k/rank-(k+1) score margin"
+      top_1_rank_k_score_drop: "Top-1/rank-k score drop"
+      mean_top_k_score: "Mean top-k score"
+      median_top_k_score: "Median top-k score"
+      top_k_score_standard_deviation: "Top-k score standard deviation"
+      top_k_score_coefficient_of_variation: "Top-k score coefficient of variation"
+      top_k_score_entropy: "Top-k score entropy"
+      top_k_score_skewness: "Top-k score skewness"
+      top_k_score_slope: "Top-k score slope"
+      boundary_score_slope: "Boundary score slope"
+      close_competitor_fraction: "Close-competitor fraction"
+      close_competitor_fraction_lexical: "Close-competitor fraction (lexical)"
+      cumulative_top_k_score_mass: "Cumulative top-k score mass"
+      boundary_surprise_score: "Boundary Surprise score"
+      surprising_document_fraction: "Surprising-document fraction"
+      normalized_query_commitment: "Normalized Query Commitment (NQC)"
+      weighted_information_gain: "Weighted Information Gain (WIG)"
+      top_1_rank_k_score_ratio: "Top-1/rank-k score ratio"
+      mean_score_decrease: "Mean-score decrease"
+
+  semantic_pre_retrieval:
+    display_name: "Semantic Pre-Retrieval"
+    order: 3
+    features:
+      query_collection_centroid_cosine: "Query-collection-centroid cosine"
+      nearest_centroid_cosine_spherical: "Nearest-centroid cosine (spherical)"
+      nearest_second_nearest_centroid_margin_spherical: "Nearest/second-nearest centroid margin (spherical)"
+      nearest_centroid_cosine_hdbscan: "Nearest-centroid cosine (HDBSCAN)"
+      nearest_second_nearest_centroid_margin_hdbscan: "Nearest/second-nearest centroid margin (HDBSCAN)"
+      distance_weighted_training_query_rr_at_k: "Distance-weighted training-query RR@k"
+      cluster_weighted_corpus_familiarity: "Cluster-weighted corpus familiarity"
+
+  semantic_post_retrieval_score:
+    display_name: "Semantic Post-Retrieval – Score Features"
+    order: 4
+    features:
+      top_1_cosine_similarity: "Top-1 cosine similarity"
+      top_1_top_2_cosine_margin: "Top-1/top-2 cosine margin"
+      cosine_similarity_at_rank_k: "Cosine similarity at rank k"
+      cosine_similarity_at_rank_k_plus_1: "Cosine similarity at rank k+1"
+      rank_k_rank_k_plus_1_cosine_margin: "Rank-k/rank-(k+1) cosine margin"
+      top_1_rank_k_cosine_drop: "Top-1/rank-k cosine drop"
+      mean_top_k_cosine_similarity: "Mean top-k cosine similarity"
+      median_top_k_cosine_similarity: "Median top-k cosine similarity"
+      top_k_cosine_standard_deviation: "Top-k cosine standard deviation"
+      top_k_cosine_entropy: "Top-k cosine entropy"
+      top_k_cosine_skewness: "Top-k cosine skewness"
+      top_k_cosine_slope: "Top-k cosine slope"
+      boundary_cosine_slope: "Boundary cosine slope"
+      close_competitor_fraction_semantic: "Close-competitor fraction (semantic)"
+      above_mean_cosine_fraction: "Above-mean cosine fraction"
+      boundary_semantic_surprise_score: "Boundary semantic Surprise score"
+      surprising_document_fraction: "Surprising-document fraction"
+      mean_cosine_decrease: "Mean cosine decrease"
+      boundary_cosine_z_score: "Boundary cosine z-score"
+      standardized_top_1_rank_k_cosine_drop: "Standardized top-1/rank-k cosine drop"
+      dense_weighted_information_gain: "Dense Weighted Information Gain"
+      dense_normalized_query_commitment: "Dense Normalized Query Commitment"
+
+  semantic_post_retrieval_ranking_geometry:
+    display_name: "Semantic Post-Retrieval – Ranking Geometry"
+    order: 5
+    features:
+      query_top_k_centroid_cosine: "Query-top-k-centroid cosine"
+      top_k_pairwise_coherence: "Top-k pairwise coherence"
+      mean_top_k_centroid_distance: "Mean top-k centroid distance"
+      top_k_centroid_distance_standard_deviation: "Top-k centroid-distance standard deviation"
+      maximum_top_k_centroid_distance: "Maximum top-k centroid distance"
+      minimum_top_k_pairwise_cosine_similarity: "Minimum top-k pairwise cosine similarity"
+      maximum_top_k_pairwise_cosine_similarity: "Maximum top-k pairwise cosine similarity"
+      top_k_pairwise_cosine_standard_deviation: "Top-k pairwise cosine standard deviation"
+      preceding_candidate_set_coherence_ratio: "Preceding candidate-set coherence ratio"
+      query_adjusted_coherence_ratio: "Query-adjusted coherence ratio"
+      average_neighbour_degree: "Average neighbour degree"
+      graph_density: "Graph density"
+      embedding_spatial_autocorrelation: "Embedding spatial autocorrelation"
+      semantic_retrieval_coherency_graph_density: "Semantic retrieval-coherency graph density"
+      largest_semantic_retrieval_coherency_component_share: "Largest semantic retrieval-coherency component share"
+      log_query_document_hyper_volume: "Log query-document hyper-volume"
+
+  semantic_post_retrieval_cluster:
+    display_name: "Semantic Post-Retrieval – Cluster Features"
+    order: 6
+    features:
+      query_nearest_cluster_share_in_top_k: "Query-nearest-cluster share in top k"
+      retrieval_score_mass_of_query_nearest_cluster: "Retrieval-score mass of the query-nearest cluster"
+      distinct_clusters_in_top_k: "Distinct clusters in top k"
+      cluster_entropy_in_top_k: "Cluster entropy in top k"
+      score_weighted_cluster_entropy_in_top_k: "Score-weighted cluster entropy in top k"
+      largest_cluster_share_in_top_k: "Largest-cluster share in top k"
+      dominant_cluster_enrichment_in_top_k: "Dominant-cluster enrichment in top k"
+      noise_fraction_in_top_k_hdbscan_only: "Noise fraction in top k (HDBSCAN only)"
+      hdbscan_query_nearest_cluster_share_in_top_k: "Query-nearest-cluster share in top k (HDBSCAN)"
+      hdbscan_retrieval_score_mass_of_query_nearest_cluster_in_top_k: "Retrieval-score mass of the query-nearest cluster in top k (HDBSCAN)"
+      hdbscan_distinct_clusters_in_top_k: "Distinct clusters in top k (HDBSCAN)"
+      hdbscan_cluster_entropy_in_top_k: "Cluster entropy in top k (HDBSCAN)"
+      hdbscan_score_weighted_cluster_entropy_in_top_k: "Score-weighted cluster entropy in top k (HDBSCAN)"
+      hdbscan_largest_cluster_share_in_top_k: "Largest-cluster share in top k (HDBSCAN)"
+      hdbscan_dominant_cluster_enrichment_in_top_k: "Dominant-cluster enrichment in top k (HDBSCAN)"
+      hdbscan_noise_fraction_in_top_k: "Noise fraction in top k (HDBSCAN)"
+      spherical_query_nearest_cluster_share_in_top_k: "Query-nearest-cluster share in top k (spherical)"
+      spherical_retrieval_score_mass_of_query_nearest_cluster_in_top_k: "Retrieval-score mass of the query-nearest cluster in top k (spherical)"
+      spherical_distinct_clusters_in_top_k: "Distinct clusters in top k (spherical)"
+      spherical_cluster_entropy_in_top_k: "Cluster entropy in top k (spherical)"
+      spherical_score_weighted_cluster_entropy_in_top_k: "Score-weighted cluster entropy in top k (spherical)"
+      spherical_largest_cluster_share_in_top_k: "Largest-cluster share in top k (spherical)"
+      spherical_dominant_cluster_enrichment_in_top_k: "Dominant-cluster enrichment in top k (spherical)"
+
+  retriever_agreement:
+    display_name: "Retriever Agreement"
+    order: 7
+    features:
+      mean_semantic_top_1_agreement: "Mean semantic top-1 agreement"
+      maximum_semantic_top_1_agreement: "Maximum semantic top-1 agreement"
+      mean_semantic_top_100_agreement: "Mean semantic top-100 agreement"
+      maximum_semantic_top_100_agreement: "Maximum semantic top-100 agreement"
+      bm25_top_1_agreement: "BM25 top-1 agreement"
+      bm25_top_100_agreement: "BM25 top-100 agreement"
+      top_1_consensus_frequency: "Top-1 consensus frequency"
+      top_100_document_consensus: "Top-100 document consensus"
+
+  perturbation_based_robustness:
+    display_name: "Perturbation-Based Robustness"
+    order: 8
+    features:
+      perturbation_ranking_stability: "Perturbation ranking stability"
+
+  document_and_query_context:
+    display_name: "Document & Query Context"
+    order: 9
+    features:
+      query_length_tokens: "Query length (tokens)"
+      gold_title_length_characters: "Gold title length (characters)"
+      gold_title_length_tokens: "Gold title length (tokens)"
+      gold_abstract_length_characters: "Gold abstract length (characters)"
+      gold_abstract_length_tokens: "Gold abstract length (tokens)"
+      gold_authors_length_characters: "Gold authors length (characters)"
+      gold_authors_length_tokens: "Gold authors length (tokens)"
+      gold_venue_length_characters: "Gold venue length (characters)"
+      gold_venue_length_tokens: "Gold venue length (tokens)"
+      gold_title_query_coverage: "Gold title query coverage"
+      gold_abstract_query_coverage: "Gold abstract query coverage"
+      gold_authors_query_coverage: "Gold authors query coverage"
+      gold_venue_query_coverage: "Gold venue query coverage"
+      gold_title_abstract_entity_overlap: "Gold title-abstract entity overlap"
+      x_artifact_ratio: "X artifact ratio"
+      x_mention_ratio: "X mention ratio"
+
+  semantic_context_signals:
+    display_name: "Semantic Context Signals"
+    order: 10
+    features:
+      top_1_cosine_similarity: "Top-1 cosine similarity"
+      top_2_cosine_similarity: "Top-2 cosine similarity"
+      top_3_cosine_similarity: "Top-3 cosine similarity"
+      top_4_cosine_similarity: "Top-4 cosine similarity"
+      top_5_cosine_similarity: "Top-5 cosine similarity"
+      top_1_top_10_mean_gap: "Top-1/top-10 mean gap"
+      top_1_agreement_vs_bge_m3: "Top-1 agreement vs. BGE-M3"
+      top_1_agreement_vs_multilingual_e5_base: "Top-1 agreement vs. multilingual-E5-base"
+
+  gold_aware_lexical_matching:
+    display_name: "Gold-Aware Lexical Matching"
+    order: 11
+    features:
+      gold_query_term_coverage: "Gold query-term coverage"
+      gold_unmatched_idf_mass_ratio: "Gold unmatched IDF mass ratio"
+
+  gold_aware_lexical_ranking:
+    display_name: "Gold-Aware Lexical Ranking"
+    order: 12
+    features:
+      gold_document_retrieval_score: "Gold document retrieval score"
+      top_1_gold_score_gap: "Top-1/gold score gap"
+      top_1_gold_score_ratio: "Top-1/gold score ratio"
+      gold_document_surprise_score: "Gold document Surprise score"
+      gold_document_surprise_threshold_indicator: "Gold document Surprise-threshold indicator"
+      top_1_gold_query_term_coverage_gap: "Top-1/gold query-term-coverage gap"
+      top_1_gold_unmatched_idf_mass_gap: "Top-1/gold unmatched IDF mass gap"
+      rank_k_gold_score_gap: "Rank-k/gold score gap"
+      gold_score_top_k_z_score: "Gold-score top-k z-score"
+
+  gold_aware_semantic_score:
+    display_name: "Gold-Aware Semantic Score"
+    order: 13
+    features:
+      gold_document_cosine_similarity: "Gold document cosine similarity"
+      top_1_gold_cosine_gap: "Top-1/gold cosine gap"
+      gold_document_semantic_surprise_score: "Gold document semantic Surprise score"
+      gold_document_semantic_surprise_threshold_indicator: "Gold document semantic Surprise-threshold indicator"
+      mean_top_k_gold_cosine_gap: "Mean top-k/gold cosine gap"
+      rank_k_gold_cosine_gap: "Rank-k/gold cosine gap"
+      gold_cosine_top_k_z_score: "Gold-cosine top-k z-score"
+      gold_cosine_above_top_k_mean: "Gold cosine above top-k mean"
+
+  gold_aware_semantic_geometry:
+    display_name: "Gold-Aware Semantic Geometry"
+    order: 14
+    features:
+      gold_top_k_centroid_cosine: "Gold-top-k-centroid cosine"
+      mean_gold_top_k_document_cosine: "Mean gold-document cosine within top k"
+      minimum_gold_top_k_document_cosine: "Minimum gold-document cosine within top k"
+      maximum_gold_top_k_document_cosine: "Maximum gold-document cosine within top k"
+      gold_top_k_cosine_standard_deviation: "Gold-cosine standard deviation within top k"
+      gold_document_graph_degree: "Gold-document graph degree"
+      gold_document_retrieval_coherency_degree: "Gold-document retrieval-coherency degree"
+      gold_connected_to_largest_coherency_component: "Gold document connected to largest coherency component"
+
+  gold_aware_cluster_spherical:
+    display_name: "Gold-Aware Cluster Features (Spherical)"
+    order: 15
+    features:
+      spherical_gold_cluster_centroid_cosine: "Gold-cluster centroid cosine (spherical)"
+      spherical_gold_cluster_centroid_rank: "Gold-cluster centroid rank (spherical)"
+      spherical_gold_cluster_present_in_top_k: "Gold cluster present in top k (spherical)"
+      spherical_gold_cluster_share_in_top_k: "Gold-cluster share in top k (spherical)"
+      spherical_gold_cluster_score_mass_in_top_k: "Gold-cluster score mass in top k (spherical)"
+      spherical_gold_cluster_enrichment_in_top_k: "Gold-cluster enrichment in top k (spherical)"
+
+  gold_aware_cluster_hdbscan:
+    display_name: "Gold-Aware Cluster Features (HDBSCAN)"
+    order: 16
+    features:
+      hdbscan_gold_cluster_centroid_cosine: "Gold-cluster centroid cosine (HDBSCAN)"
+      hdbscan_gold_cluster_centroid_rank: "Gold-cluster centroid rank (HDBSCAN)"
+      hdbscan_gold_document_labelled_as_noise: "Gold document labelled as noise (HDBSCAN)"
+      hdbscan_gold_cluster_present_in_top_k: "Gold cluster present in top k (HDBSCAN)"
+      hdbscan_gold_cluster_share_in_top_k: "Gold-cluster share in top k (HDBSCAN)"
+      hdbscan_gold_cluster_score_mass_in_top_k: "Gold-cluster score mass in top k (HDBSCAN)"
+      hdbscan_gold_cluster_enrichment_in_top_k: "Gold-cluster enrichment in top k (HDBSCAN)"
+
+  gold_aware_perturbation:
+    display_name: "Gold-Aware Perturbation-Based Robustness"
+    order: 17
+    features:
+      gold_document_cosine_perturbation: "Gold-document cosine perturbation"
+      gold_document_perturbation_retention: "Gold-document perturbation retention"

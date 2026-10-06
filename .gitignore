@@ -1,0 +1,9 @@
+artifacts/
+artifacts_*/
+data/*
+!data/README.md
+latex/tables/
+latex/figures/
+__pycache__/
+*.pyc
+*.egg-info/

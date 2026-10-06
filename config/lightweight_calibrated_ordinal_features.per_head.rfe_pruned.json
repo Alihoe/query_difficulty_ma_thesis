@@ -1,0 +1,273 @@
+{
+  "metadata_version": 2,
+  "predictor_name": "calibrated_ordinal",
+  "pipeline_stage": "rfe_pruned",
+  "heads": [
+    "solvability",
+    "5",
+    "10",
+    "20",
+    "50",
+    "100",
+    "200",
+    "1000"
+  ],
+  "importance_threshold": 0.005,
+  "excluded_multi_retriever_consensus_features": [
+    "maximum_semantic_top_100_agreement",
+    "maximum_semantic_top_1_agreement",
+    "mean_semantic_top_100_agreement",
+    "mean_semantic_top_1_agreement",
+    "top_100_document_consensus",
+    "top_1_consensus_frequency"
+  ],
+  "correlation_thresholds": [
+    0.8,
+    0.7
+  ],
+  "rfe_step": "one feature per step",
+  "rfe_selection_rule": "smallest feature count within one bootstrap standard error of the best dev objective",
+  "rfe_objectives": {
+    "stage_heads": "brier (lower is better)",
+    "solvability": "candidate_recall at tuned threshold"
+  },
+  "rfe_bootstrap_samples": 2000,
+  "source": "RFE-pruned per head from config/lightweight_calibrated_ordinal_features.per_head.correlation_pruned_round2.json",
+  "retrievers": {
+    "bm25": {
+      "heads": {
+        "solvability": {
+          "qualifying_features": [
+            "close_competitor_fraction",
+            "top_1_title_query_coverage",
+            "stopword_ratio",
+            "top_1_authors_length_characters",
+            "top_1_unmatched_idf_mass_ratio",
+            "simplified_clarity_score",
+            "top_k_score_standard_deviation"
+          ],
+          "source_feature_count": 69,
+          "starting_feature_count": 36,
+          "qualifying_feature_count": 7,
+          "rfe_objective": "candidate_recall"
+        },
+        "5": {
+          "qualifying_features": [
+            "top_k_score_slope",
+            "top_1_title_query_coverage",
+            "top_1_unmatched_idf_mass_ratio",
+            "weighted_information_gain",
+            "top_1_abstract_length_tokens",
+            "top_k_score_skewness",
+            "stopword_ratio",
+            "top_1_authors_length_characters",
+            "rank_k_rank_k_plus_1_score_margin",
+            "minimum_top_k_pairwise_tfidf_similarity"
+          ],
+          "source_feature_count": 70,
+          "starting_feature_count": 33,
+          "qualifying_feature_count": 10,
+          "rfe_objective": "brier"
+        },
+        "10": {
+          "qualifying_features": [
+            "top_k_score_coefficient_of_variation",
+            "top_1_title_query_coverage",
+            "top_1_unmatched_idf_mass_ratio",
+            "stopword_ratio",
+            "top_1_abstract_length_tokens",
+            "top_1_score",
+            "top_1_authors_length_characters",
+            "weighted_information_gain",
+            "mean_query_term_ictf",
+            "minimum_top_k_pairwise_tfidf_similarity",
+            "score_at_rank_k"
+          ],
+          "source_feature_count": 71,
+          "starting_feature_count": 35,
+          "qualifying_feature_count": 11,
+          "rfe_objective": "brier"
+        },
+        "20": {
+          "qualifying_features": [
+            "top_1_rank_k_score_ratio",
+            "top_1_title_query_coverage",
+            "stopword_ratio",
+            "top_1_abstract_length_tokens",
+            "top_1_unmatched_idf_mass_ratio",
+            "cumulative_top_k_score_mass",
+            "top_1_authors_length_characters",
+            "top_1_score",
+            "mean_query_term_ictf",
+            "clarity_score"
+          ],
+          "source_feature_count": 71,
+          "starting_feature_count": 36,
+          "qualifying_feature_count": 10,
+          "rfe_objective": "brier"
+        },
+        "50": {
+          "qualifying_features": [
+            "close_competitor_fraction",
+            "top_1_title_query_coverage",
+            "stopword_ratio",
+            "top_k_score_slope",
+            "top_1_unmatched_idf_mass_ratio",
+            "top_1_abstract_length_tokens",
+            "sentiment_intensity",
+            "cumulative_top_k_score_mass",
+            "minimum_top_k_pairwise_tfidf_similarity",
+            "mean_top_k_pairwise_entity_similarity",
+            "weighted_information_gain"
+          ],
+          "source_feature_count": 71,
+          "starting_feature_count": 38,
+          "qualifying_feature_count": 11,
+          "rfe_objective": "brier"
+        },
+        "100": {
+          "qualifying_features": [
+            "top_k_score_skewness",
+            "top_1_title_query_coverage",
+            "stopword_ratio",
+            "top_1_unmatched_idf_mass_ratio",
+            "top_k_score_slope"
+          ],
+          "source_feature_count": 71,
+          "starting_feature_count": 37,
+          "qualifying_feature_count": 5,
+          "rfe_objective": "brier"
+        },
+        "200": {
+          "qualifying_features": [
+            "top_k_score_skewness",
+            "top_1_unmatched_idf_mass_ratio",
+            "top_k_score_coefficient_of_variation"
+          ],
+          "source_feature_count": 71,
+          "starting_feature_count": 37,
+          "qualifying_feature_count": 3,
+          "rfe_objective": "brier"
+        },
+        "1000": {
+          "qualifying_features": [
+            "close_competitor_fraction",
+            "top_1_title_query_coverage",
+            "stopword_ratio",
+            "top_1_authors_length_characters",
+            "top_1_unmatched_idf_mass_ratio",
+            "simplified_clarity_score",
+            "top_k_score_standard_deviation"
+          ],
+          "source_feature_count": 69,
+          "qualifying_feature_count": 7,
+          "constant_head": true,
+          "feature_source": "solvability"
+        }
+      }
+    },
+    "qwen3_embedding_0_6b": {
+      "heads": {
+        "solvability": {
+          "qualifying_features": [
+            "distance_weighted_training_query_rr_at_k"
+          ],
+          "source_feature_count": 86,
+          "starting_feature_count": 41,
+          "qualifying_feature_count": 1,
+          "rfe_objective": "candidate_recall"
+        },
+        "5": {
+          "qualifying_features": [
+            "distance_weighted_training_query_rr_at_k",
+            "top_k_cosine_standard_deviation",
+            "bm25_top_1_agreement",
+            "top_1_cosine_similarity",
+            "boundary_cosine_z_score",
+            "perturbation_ranking_stability"
+          ],
+          "source_feature_count": 85,
+          "starting_feature_count": 36,
+          "qualifying_feature_count": 6,
+          "rfe_objective": "brier"
+        },
+        "10": {
+          "qualifying_features": [
+            "distance_weighted_training_query_rr_at_k",
+            "top_k_cosine_standard_deviation",
+            "top_1_cosine_similarity",
+            "bm25_top_1_agreement",
+            "stopword_ratio",
+            "perturbation_ranking_stability",
+            "boundary_cosine_z_score",
+            "simplified_clarity_score"
+          ],
+          "source_feature_count": 88,
+          "starting_feature_count": 35,
+          "qualifying_feature_count": 8,
+          "rfe_objective": "brier"
+        },
+        "20": {
+          "qualifying_features": [
+            "distance_weighted_training_query_rr_at_k",
+            "top_k_cosine_standard_deviation",
+            "top_1_cosine_similarity",
+            "stopword_ratio",
+            "perturbation_ranking_stability",
+            "query_top_k_centroid_cosine",
+            "top_k_cosine_skewness"
+          ],
+          "source_feature_count": 88,
+          "starting_feature_count": 39,
+          "qualifying_feature_count": 7,
+          "rfe_objective": "brier"
+        },
+        "50": {
+          "qualifying_features": [
+            "distance_weighted_training_query_rr_at_k",
+            "top_1_rank_k_cosine_drop",
+            "top_1_cosine_similarity"
+          ],
+          "source_feature_count": 88,
+          "starting_feature_count": 41,
+          "qualifying_feature_count": 3,
+          "rfe_objective": "brier"
+        },
+        "100": {
+          "qualifying_features": [
+            "distance_weighted_training_query_rr_at_k",
+            "top_1_rank_k_cosine_drop",
+            "top_1_cosine_similarity",
+            "perturbation_ranking_stability",
+            "simplified_clarity_score",
+            "hdbscan_score_weighted_cluster_entropy_in_top_k"
+          ],
+          "source_feature_count": 88,
+          "starting_feature_count": 41,
+          "qualifying_feature_count": 6,
+          "rfe_objective": "brier"
+        },
+        "200": {
+          "qualifying_features": [
+            "distance_weighted_training_query_rr_at_k",
+            "top_1_cosine_similarity",
+            "top_1_rank_k_cosine_drop"
+          ],
+          "source_feature_count": 88,
+          "starting_feature_count": 43,
+          "qualifying_feature_count": 3,
+          "rfe_objective": "brier"
+        },
+        "1000": {
+          "qualifying_features": [
+            "distance_weighted_training_query_rr_at_k"
+          ],
+          "source_feature_count": 86,
+          "qualifying_feature_count": 1,
+          "constant_head": true,
+          "feature_source": "solvability"
+        }
+      }
+    }
+  }
+}

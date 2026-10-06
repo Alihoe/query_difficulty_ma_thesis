@@ -1,0 +1,58 @@
+{
+  "metadata_version": 1,
+  "pipeline_stage": "rfe_pruned",
+  "importance_threshold": 0.005,
+  "correlation_thresholds": [
+    0.8,
+    0.7
+  ],
+  "rfe_step_fraction": 0.1,
+  "excluded_multi_retriever_consensus_features": [
+    "maximum_semantic_top_100_agreement",
+    "maximum_semantic_top_1_agreement",
+    "mean_semantic_top_100_agreement",
+    "mean_semantic_top_1_agreement",
+    "top_100_document_consensus",
+    "top_1_consensus_frequency"
+  ],
+  "retrievers": {
+    "bm25": {
+      "qualifying_features": [
+        "top_1_top_2_score_margin",
+        "top_1_title_query_coverage",
+        "top_1_unmatched_idf_mass_ratio",
+        "top_1_abstract_length_tokens",
+        "top_1_score",
+        "weighted_information_gain"
+      ],
+      "qualifying_feature_count": 6,
+      "importance_source": "hit_at_1",
+      "pipeline_stage": "rfe_pruned"
+    },
+    "qwen3_embedding_0_6b": {
+      "qualifying_features": [
+        "bm25_top_1_agreement",
+        "close_competitor_fraction",
+        "distance_weighted_training_query_rr_at_k",
+        "top_1_cosine_similarity",
+        "top_k_cosine_skewness",
+        "perturbation_ranking_stability",
+        "maximum_top_k_pairwise_cosine_similarity"
+      ],
+      "qualifying_feature_count": 7,
+      "importance_source": "hit_at_1_no_consensus",
+      "pipeline_stage": "rfe_pruned"
+    },
+    "qwen3_embedding_0_6b_finetuned": {
+      "qualifying_features": [
+        "top_1_rank_k_cosine_drop",
+        "distance_weighted_training_query_rr_at_k",
+        "bm25_top_1_agreement",
+        "top_k_cosine_skewness"
+      ],
+      "qualifying_feature_count": 4,
+      "importance_source": "hit_at_1_no_consensus",
+      "pipeline_stage": "rfe_pruned"
+    }
+  }
+}

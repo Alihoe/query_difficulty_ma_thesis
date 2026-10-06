@@ -1,0 +1,81 @@
+project_name: query_difficulty_scifact
+data_dir: data/SciFact
+artifact_dir: artifacts_scifact
+latex_table_dir: latex/tables
+languages:
+  - en
+enabled_document_scopes:
+  - title_abstract
+  - title_abstract_venue
+  - all_fields
+  - title
+  - abstract
+  - venue
+  - authors
+full_scope_retrievers: []
+predictor_feature_modes:
+  - local
+  - all_meaningful
+candidate_sizes:
+  - 5
+  - 10
+  - 20
+  - 30
+  - 50
+  - 60
+  - 100
+  - 120
+  - 200
+  - 1000
+max_ranking_depth: 1000
+enabled_feature_blocks:
+  - lexical_pre
+  - lexical_post
+  - semantic_pre
+  - semantic_score
+  - semantic_geometry
+  - semantic_cluster
+  - retriever_agreement
+  - perturbation
+enabled_clusterers:
+  - hdbscan
+  - spherical_kmeans
+enabled_lexical_retrievers:
+  - bm25
+  - tfidf
+  - keyword_overlap
+  - jaccard
+enabled_semantic_retrievers:
+  - qwen3_embedding_0_6b
+clustering:
+  spherical_k_max: 132
+runtime:
+  random_seed: 13
+  n_jobs: 1
+  allow_resource_downloads: true
+  limit_queries:
+  feature_checkpoint_batch_size: 100
+predictors:
+  ordinal:
+    base_model: random_forest
+  qpp:
+    failure_model: random_forest
+    regressor: random_forest
+    mapping: inverse_log_linear
+    score_source: regression_full
+    minimum_size: 5
+    maximum_size: 1000
+  tuned_qpp:
+    failure_model: random_forest
+    regressor: random_forest
+    score_source: regression_full
+    minimum_size: 5
+    maximum_size: 1000
+semantic_retrievers:
+  qwen3_embedding_0_6b:
+    model_name: Qwen/Qwen3-Embedding-0.6B
+    query_prefix: ""
+    document_prefix: ""
+    batch_size: 8
+    trust_remote_code: true
+    normalize_embeddings: true

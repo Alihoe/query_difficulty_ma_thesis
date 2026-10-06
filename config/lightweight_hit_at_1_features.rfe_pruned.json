@@ -1,0 +1,85 @@
+{
+  "metadata_version": 1,
+  "importance_threshold": 0.005,
+  "correlation_threshold": 0.7,
+  "rfe_selection_rule": "smallest feature count within one bootstrap standard error of best dev f0_5",
+  "rfe_bootstrap_samples": 2000,
+  "source": "RFE-pruned from config/lightweight_hit_at_1_features.correlation_pruned_round2.json; review before adopting",
+  "retrievers": {
+    "bm25": {
+      "qualifying_features": [
+        "top_1_top_2_score_margin",
+        "top_1_title_query_coverage",
+        "top_1_unmatched_idf_mass_ratio",
+        "top_1_score",
+        "weighted_information_gain",
+        "top_1_abstract_length_tokens"
+      ],
+      "source_feature_count": 30,
+      "qualifying_feature_count": 6
+    },
+    "qwen3_embedding_0_6b": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "distance_weighted_training_query_rr_at_k",
+        "top_k_cosine_skewness",
+        "top_1_cosine_similarity"
+      ],
+      "source_feature_count": 26,
+      "qualifying_feature_count": 4
+    },
+    "bge_m3": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "distance_weighted_training_query_rr_at_k",
+        "top_1_cosine_similarity"
+      ],
+      "source_feature_count": 7,
+      "qualifying_feature_count": 3
+    },
+    "bge_large_en_v1_5": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "distance_weighted_training_query_rr_at_k",
+        "top_k_cosine_skewness",
+        "top_1_cosine_similarity",
+        "perturbation_ranking_stability"
+      ],
+      "source_feature_count": 10,
+      "qualifying_feature_count": 5
+    },
+    "e5_large_v2": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "distance_weighted_training_query_rr_at_k",
+        "top_k_cosine_skewness",
+        "perturbation_ranking_stability"
+      ],
+      "source_feature_count": 10,
+      "qualifying_feature_count": 4
+    },
+    "gtr_t5_xl": {
+      "qualifying_features": [
+        "top_1_consensus_frequency"
+      ],
+      "source_feature_count": 6,
+      "qualifying_feature_count": 1
+    },
+    "multilingual_e5_large": {
+      "qualifying_features": [
+        "top_1_consensus_frequency",
+        "distance_weighted_training_query_rr_at_k",
+        "perturbation_ranking_stability"
+      ],
+      "source_feature_count": 9,
+      "qualifying_feature_count": 3
+    },
+    "multilingual_e5_base": {
+      "qualifying_features": [
+        "top_1_consensus_frequency"
+      ],
+      "source_feature_count": 3,
+      "qualifying_feature_count": 1
+    }
+  }
+}
